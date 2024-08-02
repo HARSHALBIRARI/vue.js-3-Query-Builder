@@ -25,9 +25,9 @@
         ></v-select>
       </div>
       <div style="margin-left: auto" v-if="removable">
-        <v-icon @click="removeGroup"
-          ><img src="../../public/trash-can.svg" alt="delete" height="20"
-        /></v-icon>
+        <v-icon @click="removeGroup">
+          <img src="../../public/trash-can.svg" alt="delete" height="20" />
+        </v-icon>
       </div>
     </div>
     <div>
@@ -36,30 +36,30 @@
           :rule="rule"
           :id="rule.originalIndex ?? 0"
           :fields="fields"
+          :operators="operators"
           @remove-rule="removeNestedRule"
-        >
-        </query-builder-rule>
+        ></query-builder-rule>
       </div>
       <div v-for="group in sortedGroups" class="child-wrap">
         <query-builder-group
           :group="group"
           :id="group.originalIndex ?? 0"
           :fields="fields"
+          :operators="operators"
           @remove-group="removeNestedGroup"
-        >
-        </query-builder-group>
+        ></query-builder-group>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { defineComponent, PropType } from 'vue'
 import QueryBuilderRule from './QueryBuilderRule.vue'
-import Query from '../models/Query.ts'
-import Child from '../models/Child.ts'
-import QueryRule from '@/models/QueryRule.ts'
-import { Children } from '@/types'
-import { defineComponent } from 'vue'
+import Query from '@/models/Query'
+import Child from '@/models/Child'
+import QueryRule from '@/models/QueryRule'
+import { Children, Operator } from '@/types'
 
 export default defineComponent({
   name: 'QueryBuilderGroup',
@@ -68,7 +68,7 @@ export default defineComponent({
   },
   props: {
     group: {
-      type: Child<Query>,
+      type: Object as PropType<Child<Query>>,
       required: true
     },
     id: {
@@ -76,7 +76,11 @@ export default defineComponent({
       required: true
     },
     fields: {
-      type: Array,
+      type: Array as PropType<string[]>,
+      required: true
+    },
+    operators: {
+      type: Array as PropType<Operator[]>,
       required: true
     },
     removable: {
@@ -127,7 +131,6 @@ export default defineComponent({
           children: []
         }
       }
-
       this.group.query.children.push(group)
     },
     addRule() {
@@ -140,7 +143,6 @@ export default defineComponent({
           value: ''
         }
       }
-
       this.group.query.children.push(rule)
     },
     removeGroup() {
