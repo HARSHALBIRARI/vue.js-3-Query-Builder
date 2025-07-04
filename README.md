@@ -1,71 +1,147 @@
-# Vuetify Query Builder
+# Vue.js 3 Query Builder
 
-## Usage:
+A flexible and customizable query builder component for Vue.js 3, designed to work seamlessly with Vuetify. Create complex, nested queries using a simple and intuitive UI.
 
-The query builder can be used by simply importing the component
-and using inside a vue component: 
+Effortlessly build advanced filtering logic with support for grouping, multiple operators, and diverse field types. The component is highly extensible, making it easy to tailor the user experience and appearance to your project’s requirements. With a focus on usability and performance, this query builder is ideal for dashboards, admin panels, and any application that needs advanced search or filtering capabilities.
+
+
+---
+
+## Installation
+
+Install the package via npm:
+
+```bash
+npm install @ampgroep/vuetify-query-builder
+```
+
+---
+
+## Basic Usage
+
+Import and register the component in your Vue 3 application. Supports both the Options API and Composition API.
+
+### 1. Using the Options API
+
 ```vue
 <template>
-  ...
-  <query-builder v-model="filter" :filter-fields="filter_fields" :color="color">
-  </query-builder>
-  ...
+  <query-builder v-model="filter" :filter-fields="filterFields" :color="color" />
 </template>
 
-Options API:
 <script>
-  import QueryBuilder from '@ampgroep/vuetify-query-builder'
-  import '@vue/vuetify-query-builder/dist/style.css'
-  export default {
-     components: { QueryBuilder },
-     data() {
-       return {
-           filter: {},
-           filter_fields: ['id', 'name', 'date', 'gender'],
-           // By default, this package will try to use your projects primary color  
-           color: 'royalblue'
-         }
-     }
+import QueryBuilder from '@ampgroep/vuetify-query-builder'
+import '@vue/vuetify-query-builder/dist/style.css'
+
+export default {
+  components: { QueryBuilder },
+  data() {
+    return {
+      filter: {},
+      filterFields: ['id', 'name', 'date', 'gender'],
+      color: 'royalblue'
+    }
   }
-</script>
-
-Composition API: 
-<script setup>
-  import QueryBuilder from '@ampgroep/vuetify-query-builder'
-  import '@vue/vuetify-query-builder/dist/style.css'
-  import { ref } from 'vue'
-  let query = ref({})
-  const filter_fields = ['id', 'name', 'date', 'gender']
-  const color = 'royalblue'
-</script>
-```
-## Expected parameters:
-```ts
-
-class QueryBuilder {
-    modelValue: {} | Query
-    filterFields: Array<string>
-    color: String
 }
+</script>
 ```
-### 'modelValue' parameter:
-```ts
 
+### 2. Using the Composition API
+
+```vue
+<template>
+  <query-builder v-model="query" :filter-fields="filterFields" :color="color" />
+</template>
+
+<script setup>
+import QueryBuilder from '@ampgroep/vuetify-query-builder'
+import '@vue/vuetify-query-builder/dist/style.css'
+import { ref } from 'vue'
+
+const query = ref({})
+const filterFields = ['id', 'name', 'date', 'gender']
+const color = 'royalblue'
+</script>
+```
+
+---
+
+## Props
+
+| Prop           | Type                         | Required | Default     | Description                                                        |
+| -------------- | ----------------------------| -------- | ----------- | ------------------------------------------------------------------ |
+| `modelValue`   | `object` or `Query`         | Yes      | `{}`        | The current query object (for v-model binding).                    |
+| `filterFields` | `Array<string>`             | Yes      | `[]`        | List of fields available for filtering.                            |
+| `color`        | `string`                    | No       | primary     | Color theme for the component. Uses your project's primary color by default. |
+
+### Query Format
+
+The value bound to `v-model` should match this interface:
+
+```ts
 interface Query {
-    logicalOperator: LogicalOperator // "AND" or "OR"
-    children: Children<Query | QueryRule> // An array of child elements (either groups or rules)
+  logicalOperator: 'AND' | 'OR'
+  children: Array<Query | QueryRule>
 }
 
 interface QueryRule {
-    rule?: string
-    operator: Operator['value']
-    operand: string
-    value: Array<string | number> | string | number | null
+  rule?: string
+  operator: string // e.g. '=', '!=', '>', etc.
+  operand: string
+  value: Array<string | number> | string | number | null
 }
-
 ```
 
-Example:
+---
 
-![img.png](/example.png)
+## Example Query Object
 
+```json
+{
+  "logicalOperator": "AND",
+  "children": [
+    {
+      "rule": "name",
+      "operator": "=",
+      "operand": "name",
+      "value": "John"
+    },
+    {
+      "logicalOperator": "OR",
+      "children": [
+        {
+          "rule": "age",
+          "operator": ">",
+          "operand": "age",
+          "value": 30
+        },
+        {
+          "rule": "gender",
+          "operator": "=",
+          "operand": "gender",
+          "value": "male"
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## Screenshot
+
+![image](https://github.com/user-attachments/assets/7f9bbb39-4887-48d2-ac27-8c1593157b44)
+
+![{A211884B-110D-4BA5-B69C-52094659AD93}](https://github.com/user-attachments/assets/76e67899-6cd0-45c7-8349-2dc9315bd921)
+
+---
+
+## License
+
+MIT
+
+---
+
+## Credits
+
+Developed and maintained by Harshal Birari use for Zensar
