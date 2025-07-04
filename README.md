@@ -15,7 +15,7 @@ and using inside a vue component:
 Options API:
 <script>
   import QueryBuilder from '@ampgroep/vuetify-query-builder'
-  import '@ampgroep/vuetify-query-builder/dist/style.css'
+  import '@vue/vuetify-query-builder/dist/style.css'
   export default {
      components: { QueryBuilder },
      data() {
