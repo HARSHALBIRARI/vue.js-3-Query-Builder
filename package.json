@@ -24,7 +24,7 @@
     "vue.js 3",
     "vuetify 3"
   ],
-  "version": "0.8.2",
+  "version": "0.8.3",
   "files": [
     "dist"
   ],
