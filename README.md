@@ -32,7 +32,7 @@ Options API:
 Composition API: 
 <script setup>
   import QueryBuilder from '@ampgroep/vuetify-query-builder'
-  import '@ampgroep/vuetify-query-builder/dist/style.css'
+  import '@vue/vuetify-query-builder/dist/style.css'
   import { ref } from 'vue'
   let query = ref({})
   const filter_fields = ['id', 'name', 'date', 'gender']
