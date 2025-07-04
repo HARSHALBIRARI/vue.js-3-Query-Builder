@@ -1,5 +1,5 @@
 {
-  "name": "@ampgroep/vuetify-query-builder",
+  "name": "@vuejs3/vuetify-query-builder",
   "author": "Igor Buriakov - AMP Groep",
   "keywords": [
     "vue",
@@ -10,7 +10,9 @@
     "query"
   ],
   "version": "0.8.1",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ampgroep/vuetify-query-builder"
@@ -38,16 +40,16 @@
     "vuetify": "^3.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.4.0",
+    "@vitejs/plugin-vue": "^6.0.0",
     "@vue/tsconfig": "^0.4.0",
     "path": "^0.12.7",
     "prettier": "^3.1.0",
     "typescript": "^5.3.2",
-    "vite": "^4.4.11",
-    "vite-plugin-dts": "^3.6.4",
-    "vite-plugin-vuetify": "^1.0.2",
-    "vue-tsc": "^1.8.24",
+    "vite": "^7.0.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-vuetify": "^2.1.1",
     "vue": "^3.3.4",
+    "vue-tsc": "^3.0.1",
     "vuetify": "^3.3.23"
   }
 }

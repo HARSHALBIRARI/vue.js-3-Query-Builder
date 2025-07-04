@@ -12,7 +12,7 @@ Effortlessly build advanced filtering logic with support for grouping, multiple 
 Install the package via npm:
 
 ```bash
-npm install @ampgroep/vuetify-query-builder
+npm install @vuejs3/vuetify-query-builder
 ```
 
 ---
@@ -29,7 +29,7 @@ Import and register the component in your Vue 3 application. Supports both the O
 </template>
 
 <script>
-import QueryBuilder from '@ampgroep/vuetify-query-builder'
+import QueryBuilder from '@vuejs3/vuetify-query-builder'
 import '@vue/vuetify-query-builder/dist/style.css'
 
 export default {
@@ -53,7 +53,7 @@ export default {
 </template>
 
 <script setup>
-import QueryBuilder from '@ampgroep/vuetify-query-builder'
+import QueryBuilder from '@vuejs3/vuetify-query-builder'
 import '@vue/vuetify-query-builder/dist/style.css'
 import { ref } from 'vue'
 
@@ -132,16 +132,15 @@ interface QueryRule {
 
 ![image](https://github.com/user-attachments/assets/7f9bbb39-4887-48d2-ac27-8c1593157b44)
 
-![{A211884B-110D-4BA5-B69C-52094659AD93}](https://github.com/user-attachments/assets/76e67899-6cd0-45c7-8349-2dc9315bd921)
+![Existing query object:](image.png)
+
 
 ---
 
-## License
 
-MIT
 
 ---
 
 ## Credits
 
-Developed and maintained by Harshal Birari use for Zensar
+Developed and maintained by Harshal Birari / use for Zensar 
