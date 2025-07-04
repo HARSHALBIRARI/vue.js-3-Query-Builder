@@ -1,14 +1,30 @@
 {
-  "name": "@vuejs3/vuetify-query-builder",
+  "name": "vuejs3-vuetify-query-builder",   
   "author": "Igor Buriakov - AMP Groep",
-  "keywords": [
-    "vue",
-    "vuetify",
-    "vue3",
-    "query-builder",
-    "filter",
-    "query"
-  ],
+ "keywords": [
+  "query builder",
+  "vue query builder",
+  "visual query builder",
+  "vue3 query",
+  "vuetify query builder",
+  "vuejs query builder",
+  "filter builder",
+  "rule builder",
+  "vue query ui",
+  "advanced filter",
+  "condition builder",
+  "drag drop filters",
+  "query editor",
+  "visual filters",
+  "form builder",
+  "data query tool",
+  "vue.js 3 query builder",
+  "vuetify 3 query builder",
+  "vue.js and vuetify ",
+  "vue.js 3",
+  "vuetify 3"
+]
+,
   "version": "0.8.2",
   "files": [
     "dist"
