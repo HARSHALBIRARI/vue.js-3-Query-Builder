@@ -24,13 +24,13 @@
     "vue.js 3",
     "vuetify 3"
   ],
-  "version": "0.8.5",
+  "version": "1.8.5",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ampgroep/vuetify-query-builder"
+    "url": "https://github.com/HARSHALBIRARI/vue.js-3-Query-Builder"
   },
   "publishConfig": {
     "access": "public"
